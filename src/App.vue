@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -12,8 +11,8 @@ import HelloWorld from './components/HelloWorld.vue'
     <div class="wrapper">
       <nav>
         <router-link to="/" class="nav-link">{{ $t('home') }}</router-link>
-        <router-link to="/ingredientes" class="nav-link">{{ $t('ingredients') }}</router-link>
-        <router-link to="/platos" class="nav-link">{{ $t('dishes') }}</router-link>
+        <router-link to="/ingredients" class="nav-link">{{ $t('ingredients') }}</router-link>
+        <router-link to="/dishes" class="nav-link">{{ $t('dishes') }}</router-link>
         <router-link to="/about" class="nav-link">{{ $t('about') }}</router-link>
       </nav>
     </div>
