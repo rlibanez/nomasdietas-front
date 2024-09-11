@@ -11,10 +11,10 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
     <div class="wrapper">
       <nav>
-        <router-link to="/" class="nav-link">Inicio</router-link>
-        <router-link to="/ingredientes" class="nav-link">Ingredientes</router-link>
-        <router-link to="/platos" class="nav-link">Platos</router-link>
-        <router-link to="/about" class="nav-link">Acerca de</router-link>
+        <router-link to="/" class="nav-link">{{ $t('home') }}</router-link>
+        <router-link to="/ingredientes" class="nav-link">{{ $t('ingredients') }}</router-link>
+        <router-link to="/platos" class="nav-link">{{ $t('dishes') }}</router-link>
+        <router-link to="/about" class="nav-link">{{ $t('about') }}</router-link>
       </nav>
     </div>
   </header>
@@ -77,5 +77,4 @@ nav a:first-of-type {
   margin-top: 3rem;
   padding-left: 1rem;
 }
-
 </style>
