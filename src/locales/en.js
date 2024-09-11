@@ -1,5 +1,6 @@
 export default {
     home: 'Home',
+    welcome: 'Welcome to No Más Dietas!',
     ingredients: 'Ingredients',
     ingredient: 'Ingredient',
     dishes: 'Dishes',

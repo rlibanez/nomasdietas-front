@@ -1,5 +1,6 @@
 export default {
     home: 'Inicio',
+    welcome: 'Bienvenido a No Más Dietas!',
     ingredients: 'Ingredientes',
     ingredient: 'Ingrediente',
     dishes: "Platos",
