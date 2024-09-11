@@ -24,12 +24,17 @@ const router = createRouter({
     },
     {
       path: '/dishes',
-      name: 'dishes',
+      name: 'Dishes',
       component: DishesView
     },
     {
       path: '/dishes/:id',
-      name: 'dishesid',
+      name: 'DishDetails',
+      component: DishesView
+    },
+    {
+      path: '/dishes/byingredient/:id',
+      name: 'DishesByIngredient',
       component: DishesView
     },
     {

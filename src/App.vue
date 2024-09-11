@@ -10,10 +10,10 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
     <div class="wrapper">
       <nav>
-        <router-link to="/" class="nav-link">{{ $t('home') }}</router-link>
-        <router-link to="/ingredients" class="nav-link">{{ $t('ingredients') }}</router-link>
-        <router-link to="/dishes" class="nav-link">{{ $t('dishes') }}</router-link>
-        <router-link to="/about" class="nav-link">{{ $t('about') }}</router-link>
+        <router-link to="/" class="nav-link" exact-active-class="active">{{ $t('home') }}</router-link>
+        <router-link to="/ingredients" class="nav-link" active-class="active">{{ $t('ingredients') }}</router-link>
+        <router-link to="/dishes" class="nav-link" active-class="active">{{ $t('dishes') }}</router-link>
+        <router-link to="/about" class="nav-link" exact-active-class="active">{{ $t('about') }}</router-link>
       </nav>
     </div>
   </header>
@@ -75,5 +75,20 @@ nav a:first-of-type {
 .content {
   margin-top: 3rem;
   padding-left: 1rem;
+}
+
+.active {
+  font-weight: bold;
+  color: var(--active-color); /* Define un color personalizado para los enlaces activos */
+}
+
+.content {
+  margin-top: 3rem;
+  padding-left: 1rem;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #42b983;
 }
 </style>

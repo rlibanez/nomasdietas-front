@@ -41,15 +41,23 @@ export default {
       selectedDish: null,
       isEditing: false,
       isAdding: false,
-      showModal: false
+      showModal: false,
+      selectedIngredient: null
     };
   },
   async created() {
-    await this.fetchDishes();
-    const dishId = Number(this.$route.params.id);
-    if (dishId) {
-      console.log('async created Dishes seleccionado:', dishId);
-      this.selectDishById(dishId);
+    // await this.fetchDishes();
+    const routeId = Number(this.$route.params.id);
+    if (this.$route.name === 'DishesByIngredient') {
+      // Si la ruta es /dishes/byingredient/:id, cargar platos por ingrediente
+      await this.fetchDishesByIngredient(routeId);
+    } else if (this.$route.name === 'DishDetails') {
+      // Si la ruta es /dishes/:id, seleccionar el plato correspondiente
+      await this.fetchDishes();
+      this.selectDishById(routeId);
+    } else {
+      // Cargar todos los platos en la ruta general /dishes
+      await this.fetchDishes();
     }
   },
   // mounted() {
@@ -60,12 +68,12 @@ export default {
   // },
   watch: {
     '$route.params.id': function (newId) {
-      if (newId) {
-        this.fetchDishes();
-        this.selectDishById(Number(newId));
+      if (this.$route.name === 'DishesByIngredient') {
+        this.fetchDishesByIngredient(newId); // Filtra platos por ingrediente
+      } else if (this.$route.name === 'DishDetails') {
+        this.selectDishById(newId); // Selecciona el plato por id
       } else {
-        this.fetchDishes();
-        this.selectedDish = null;
+        this.fetchDishes(); // Carga todos los platos
       }
     }
   },
@@ -95,6 +103,16 @@ export default {
         this.selectedDish = null;
       }
     },
+    async fetchDishesByIngredient(ingredientId) {
+      try {
+        console.log('fetchDishesByIngredient ingrediente seleccionado:', ingredientId);
+        const response = await axios.get(`/api/ingrediente/platos/${ingredientId}`);
+        this.dishes = response.data;
+      } catch (error) {
+        console.error('Error al cargar platos por ingrediente:', error);
+      }
+    },
+
     // Método emitido por DishesTable
     selectDish(dish) {
       console.log('selectDish Dishe seleccionado:', dish.id);
@@ -194,6 +212,10 @@ export default {
         window.location.reload();
       }
     },
+
+    showDishes(ingredient) {
+      this.selectedIngredient = ingredient;
+    }
 
     // handleClickOutside(event) {
     //     const table = this.$refs.dishesTable.$el;

@@ -12,6 +12,12 @@
           <input type="text" id="descripcion" v-model="ingredient.descripcion" />
         </label>
       </div>
+
+      <div>
+        <label for="calorias">Calorías por 100 gramos:
+          <input type="number" id="calorias" v-model="ingredient.calorias" min="0" class="right-aligned"/>
+        </label>
+      </div>
       <div class="details-buttons">
         <button class="save-button" type="submit">Guardar</button>
         <button class="cancel-button" type="button" @click="cancelForm">Cancelar</button>
@@ -31,7 +37,7 @@ export default {
   },
   computed: {
     title() {
-      return this.mode === 'edit' ? 'Detalles del Ingrediente' : 'Nuevo Ingrediente';
+      return this.mode === 'edit' ? 'Editar' : 'Nuevo';
     }
   },
   methods: {
@@ -52,6 +58,10 @@ export default {
 </script>
 
 <style scoped>
+.right-aligned {
+  text-align: right;
+}
+
 button {
   margin-right: 0.5rem;
   padding: 0.5rem 1rem;

@@ -1,5 +1,5 @@
 <template>
-  <div class="ingredient-list">
+  <div class="ingredients-view">
     <h1>{{ $t('ingredients') }}</h1>
 
     <div class="left-panel">
@@ -209,7 +209,7 @@ export default {
 </script>
 
 <style scoped>
-.ingredient-list {
+.ingredients-view {
   margin: 2rem;
 }
 
