@@ -4,7 +4,7 @@
     <form @submit.prevent="submitForm">
       <div>
         <label for="nombre">Nombre:
-          <input type="text" id="nombre" v-model="dish.nombre" />
+          <input type="text" id="nombre" v-model="dish.nombre" required />
         </label>
       </div>
       <div>
@@ -14,7 +14,7 @@
       </div>
       <div>
         <label for="ingrediente">Ingrediente principal:
-          <select v-model="dish.ingrediente">
+          <select v-model="dish.ingrediente" required>
             <option v-for="ingredient in ingredients" :key="ingredient.id" :value="ingredient">{{ ingredient.nombre }}
             </option>
           </select>
@@ -22,13 +22,14 @@
         </label>
       </div>
       <div>
-        <label for="cantidadIngrediente">Porcentaje en peso:
-          <input type="number" id="cantidadIngrediente" v-model="dish.cantidadIngredientePrincipal" min="0" max="100" class="right-aligned"/>
+        <label for="cantidadIngrediente">Porcentaje de ingrediente en peso:
+          <input type="number" id="cantidadIngrediente" v-model="dish.cantidadIngredientePrincipal" min="1" max="100"
+            class="right-aligned" />
         </label>
       </div>
       <div>
         <label for="calorias">Calorías por 100 gramos:
-          <input type="number" id="calorias" v-model="dish.calorias" min="0" class="right-aligned"/>
+          <input type="number" id="calorias" v-model="dish.calorias" min="0" class="right-aligned" />
         </label>
       </div>
       <div>
@@ -100,7 +101,7 @@ export default {
   width: 100%;
   padding: 0.5rem;
   margin-top: 0.5rem;
-  background-color: white; 
+  background-color: white;
   /* border: 1px solid;  */
 }
 

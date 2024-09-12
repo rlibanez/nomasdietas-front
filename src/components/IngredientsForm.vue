@@ -4,7 +4,7 @@
     <form @submit.prevent="submitForm">
       <div>
         <label for="nombre">Nombre:
-          <input type="text" id="nombre" v-model="ingredient.nombre" />
+          <input type="text" id="nombre" v-model="ingredient.nombre" required />
         </label>
       </div>
       <div>
@@ -15,7 +15,7 @@
 
       <div>
         <label for="calorias">Calorías por 100 gramos:
-          <input type="number" id="calorias" v-model="ingredient.calorias" min="0" class="right-aligned"/>
+          <input type="number" id="calorias" v-model="ingredient.calorias" min="0" class="right-aligned" />
         </label>
       </div>
       <div class="details-buttons">
