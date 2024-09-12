@@ -225,7 +225,7 @@ export default {
 
 <style scoped>
 .ingredients-view {
-  margin: 2rem;
+  margin: 1rem 0rem;
 }
 
 table {

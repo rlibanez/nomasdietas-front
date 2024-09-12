@@ -236,7 +236,7 @@ export default {
 
 <style scoped>
 .dishes-view {
-  margin: 2rem;
+  margin: 1rem 0rem;
 }
 
 .dish-list {
