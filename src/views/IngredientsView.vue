@@ -2,13 +2,13 @@
   <div class="ingredients-view">
     <h2>{{ $t('ingredients') }}</h2>
 
-    <div class="left-panel">
+    <div class="ingredients-table">
       <IngredientsTable ref="ingredientsTable" :ingredients="ingredients" :selectedIngredient="selectedIngredient"
         @selectIngredient="selectIngredient" @addIngredient="addIngredient" @editIngredient="editIngredient"
         @showDeleteModal="showDeleteModal" />
     </div>
 
-    <div class="right-panel" v-if="isEditing || isAdding">
+    <div class="ingredients-form" v-if="isEditing || isAdding">
       <IngredientForm :ingredient="selectedIngredient" :mode="isEditing ? 'edit' : 'add'" @save="handleSave"
         @cancel="cancelEdit" />
     </div>
@@ -224,7 +224,7 @@ export default {
 </script>
 
 <style scoped>
-.ingredients-view {
+.ingredients-view .ingredients-table{
   margin: 1rem 0rem;
 }
 

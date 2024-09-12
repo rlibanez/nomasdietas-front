@@ -2,12 +2,12 @@
   <div class="dishes-view">
     <h2>{{ pageTitle }}</h2>
 
-    <div class="left-panel">
+    <div class="dishes-table">
       <DishesTable ref="dishesTable" :dishes="dishes" :selectedDish="selectedDish" @selectDish="selectDish"
         @addDish="addDish" @editDish="editDish" @showDeleteModal="showDeleteModal" />
     </div>
 
-    <div class="right-panel" v-if="isEditing || isAdding">
+    <div class="dishes-form" v-if="isEditing || isAdding">
       <DishForm :dish="selectedDish" :mode="isEditing ? 'edit' : 'add'" @save="handleSave" @cancel="cancelEdit" />
     </div>
 
@@ -235,7 +235,7 @@ export default {
 </script>
 
 <style scoped>
-.dishes-view {
+.dishes-view .dishes-table{
   margin: 1rem 0rem;
 }
 
