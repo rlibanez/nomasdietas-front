@@ -11,5 +11,6 @@ export default {
     yes: 'Sí',
     no: 'No',
     cancel: 'Cancelar',
-    accept: 'Aceptar'
+    accept: 'Aceptar',
+    language: 'Idioma'
 };
