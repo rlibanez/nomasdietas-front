@@ -7,15 +7,15 @@
           <th>Nombre</th>
           <th>Descripción</th>
           <th class="min-column">Ingrediente principal</th>
-          <th class="min-column">Porcentaje en peso</th>
-          <th class="min-column">Calorías por 100 gramos</th>
+          <th class="min-column">% de ingrediente en peso</th>
+          <th class="min-column">kcal por 100 g</th>
           <th class="min-column">Favorito</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="dish in dishes" :key="dish.id" :class="{ 'selected-row': dish === selectedDish }"
           @click="selectDish(dish)">
-          <td>{{ dish.nombre }}</td>
+          <td class="min-column">{{ dish.nombre }}</td>
           <td>{{ dish.descripcion }}</td>
           <td>{{ dish.ingrediente.nombre }}</td>
           <td class="right">{{ dish.cantidadIngredientePrincipal }}</td>
@@ -121,7 +121,7 @@ button:disabled {
 }
 
 .selected-row {
-  background-color: #d3d3d3;
+  background-color: #6fff6f;
 }
 
 /* Estilos específicos para el componente DishList */

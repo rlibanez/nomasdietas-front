@@ -6,7 +6,7 @@
         <tr>
           <th>Nombre</th>
           <th>Descripción</th>
-          <th class="min-column">Calorías por 100 gramos</th>
+          <th class="min-column">kcal por 100 g</th>
           <th class="min-column">Mostrar platos</th>
         </tr>
       </thead>
@@ -14,7 +14,7 @@
         <tr v-for="ingredient in ingredients" :key="ingredient.id"
           :class="{ 'selected-row': ingredient === selectedIngredient }" @click="selectIngredient(ingredient)">
           <td>{{ ingredient.nombre }}</td>
-          <td >{{ ingredient.descripcion }}</td>
+          <td>{{ ingredient.descripcion }}</td>
           <td class="right">{{ ingredient.calorias }}</td>
           <td class="center">
             <button class="arrow-button" @click.stop="showDishes(ingredient.id)">
@@ -61,7 +61,7 @@ export default {
     showDeleteModal() {
       this.$emit('showDeleteModal');
     },
-    showDishes(ingredientId) {  
+    showDishes(ingredientId) {
       this.$emit('showDishes', ingredientId);
       this.$router.push({ name: 'DishesByIngredient', params: { id: ingredientId } });
     }
@@ -75,6 +75,10 @@ export default {
   /* width: min-content; */
   width: 1%;
   white-space: nowrap;
+}
+
+.min-column2 {
+  width: min-content;
 }
 
 .actions {
@@ -119,7 +123,7 @@ button:disabled {
 }
 
 .selected-row {
-  background-color: #d3d3d3;
+  background-color: #6fff6f;
 }
 
 /* Estilos específicos para el componente IngredientList */
@@ -163,6 +167,7 @@ button.arrow-button {
 }
 
 button.arrow-button:hover {
-  color: #007bff; /* Puedes cambiar el color al hacer hover si lo deseas */
+  color: #007bff;
+  /* Puedes cambiar el color al hacer hover si lo deseas */
 }
 </style>
