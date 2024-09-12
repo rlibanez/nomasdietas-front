@@ -15,9 +15,9 @@
 
     <div v-if="showModal" class="modal">
       <div class="modal-content">
-        <p>¿Estás seguro de que deseas eliminar este ingrediente?</p>
-        <button @click="confirmDelete">{{ $t('yes') }}</button>
-        <button @click="showModal = false">{{ $t('no') }}</button>
+        <p>{{ errorMessage || $t('areYouSure') }}</p>
+        <button v-if="!errorMessage" @click="deleteIngredient">{{ $t('yes') }}</button>
+        <button @click="showModal = false">{{ errorMessage ? $t('accept') : $t('no') }}</button>
       </div>
     </div>
 
@@ -41,7 +41,8 @@ export default {
       selectedIngredient: null,
       isEditing: false,
       isAdding: false,
-      showModal: false
+      showModal: false,
+      errorMessage: null
     };
   },
   async created() {
@@ -118,10 +119,9 @@ export default {
       this.isEditing = false;
       this.isAdding = false;
     },
-    async confirmDelete() {
-      if (!this.selectedIngredient) return
+    async deleteIngredient() {
+      if (!this.selectedIngredient) return;
 
-      this.isEditing = false;
       const toast = useToast();
       try {
         await axios.delete(`/api/ingrediente/${this.selectedIngredient.id}`);
@@ -130,13 +130,28 @@ export default {
         this.selectedIngredient = null;
         this.showModal = false;
       } catch (error) {
-        toast.error(`Error al borrar el ingrediente ${this.selectedIngredient.nombre}.`);
+        this.errorMessage = `El ingrediente ${this.selectedIngredient.nombre} tiene platos asociados, no se puede borrar.`;
+        toast.error(`El ingrediente ${this.selectedIngredient.nombre} no se ha borrado.`);
       } finally {
         this.fetchIngredients();
       }
     },
+    async confirmDelete() {
+      if (this.selectedIngredient) {
+        this.showDeleteModal();
+      }
+    },
+
+    handleErrorConfirmation() {
+      if (this.errorMessage) {
+        const toast = useToast();
+        toast.error(this.errorMessage);
+      }
+      this.showModal = false;
+    },
 
     showDeleteModal() {
+      this.errorMessage = null
       this.showModal = true
     },
 
