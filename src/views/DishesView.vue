@@ -1,6 +1,6 @@
 <template>
   <div class="dishes-view">
-    <h1>{{ pageTitle }}</h1>
+    <h2>{{ pageTitle }}</h2>
 
     <div class="left-panel">
       <DishesTable ref="dishesTable" :dishes="dishes" :selectedDish="selectedDish" @selectDish="selectDish"

@@ -1,6 +1,6 @@
 <template>
   <div class="ingredients-view">
-    <h1>{{ $t('ingredients') }}</h1>
+    <h2>{{ $t('ingredients') }}</h2>
 
     <div class="left-panel">
       <IngredientsTable ref="ingredientsTable" :ingredients="ingredients" :selectedIngredient="selectedIngredient"
