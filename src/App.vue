@@ -23,7 +23,7 @@ const changeLanguage = (lang) => {
 <template>
   <header>
     <div class="logo-title-container">
-      <img alt="Cado logo" class="logo" src="/avocado2.png" width="50" height="50" />
+      <img alt="Cado logo" class="logo" src="/images/avocado2.png" width="50" height="50" />
       <h1 class="green">No Más Dietas!</h1>
     </div>
     <div class="wrapper">
@@ -53,6 +53,9 @@ const changeLanguage = (lang) => {
 
 
 <style scoped>
+.green {
+  font-size: 3rem;
+}
 header {
   line-height: 1.5;
   max-height: 100vh;
