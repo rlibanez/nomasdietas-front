@@ -1,16 +1,14 @@
 <template>
   <div class="dishes-view">
-    <h1>{{ $t('dishes') }}</h1>
+    <h1>{{ pageTitle }}</h1>
 
     <div class="left-panel">
-      <DishesTable ref="dishesTable" :dishes="dishes" :selectedDish="selectedDish"
-        @selectDish="selectDish" @addDish="addDish" @editDish="editDish"
-        @showDeleteModal="showDeleteModal" />
+      <DishesTable ref="dishesTable" :dishes="dishes" :selectedDish="selectedDish" @selectDish="selectDish"
+        @addDish="addDish" @editDish="editDish" @showDeleteModal="showDeleteModal" />
     </div>
 
     <div class="right-panel" v-if="isEditing || isAdding">
-      <DishForm :dish="selectedDish" :mode="isEditing ? 'edit' : 'add'" @save="handleSave"
-        @cancel="cancelEdit" />
+      <DishForm :dish="selectedDish" :mode="isEditing ? 'edit' : 'add'" @save="handleSave" @cancel="cancelEdit" />
     </div>
 
     <div v-if="showModal" class="modal">
@@ -66,6 +64,11 @@ export default {
   // beforeUnmount() {
   //     document.removeEventListener('click', this.handleClickOutside);
   // },
+  computed: {
+    pageTitle() {
+      return this.$route.name === 'DishesByIngredient' ? this.$t('dishesfiltered') : this.$t('dishes');
+    }
+  },
   watch: {
     '$route.params.id': function (newId) {
       if (this.$route.name === 'DishesByIngredient') {
@@ -294,4 +297,3 @@ tr.selected {
   color: black;
 }
 </style>
-
