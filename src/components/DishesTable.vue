@@ -4,12 +4,12 @@
     <table>
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th class="min-column">Ingrediente principal</th>
-          <th class="min-column">% de ingrediente en peso</th>
-          <th class="min-column">kcal por 100 g</th>
-          <th class="min-column">Favorito</th>
+          <th>{{ $t('name') }}</th>
+          <th>{{ $t('description') }}</th>
+          <th class="min-column">{{ $t('mainIngredient') }}</th>
+          <th class="min-column">{{ $t('ingredientByWeight') }}</th>
+          <th class="min-column">{{ $t('kcal100g') }}</th>
+          <th class="min-column">{{ $t('favorite') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -29,9 +29,9 @@
   </div>
 
   <div class="actions">
-    <button class="create-button" @click="addDish">Agregar</button>
-    <button class="edit-button" @click="editDish" :disabled="!selectedDish">Editar</button>
-    <button class="delete-button" @click.stop="showDeleteModal" :disabled="!selectedDish">Eliminar</button>
+    <button class="create-button" @click="addDish">{{ $t('add') }}</button>
+    <button class="edit-button" @click="editDish" :disabled="!selectedDish">{{ $t('edit') }}</button>
+    <button class="delete-button" @click.stop="showDeleteModal" :disabled="!selectedDish">{{ $t('delete') }}</button>
   </div>
 
 </template>
@@ -121,7 +121,7 @@ button:disabled {
 }
 
 .selected-row {
-  background-color: #6fff6f;
+  background-color: #b4ffc3;
 }
 
 /* Estilos específicos para el componente DishList */

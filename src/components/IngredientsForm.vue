@@ -3,24 +3,24 @@
     <h2>{{ title }}</h2>
     <form @submit.prevent="submitForm">
       <div>
-        <label for="nombre">Nombre:
+        <label for="nombre">{{ $t('name') }}
           <input type="text" id="nombre" v-model="ingredient.nombre" required />
         </label>
       </div>
       <div>
-        <label for="descripcion">Descripción:
+        <label for="descripcion">{{ $t('description') }}
           <input type="text" id="descripcion" v-model="ingredient.descripcion" />
         </label>
       </div>
 
       <div>
-        <label for="calorias">Calorías por 100 gramos:
+        <label for="calorias">{{ $t('kcal100g') }}
           <input type="number" id="calorias" v-model="ingredient.calorias" min="0" class="right-aligned" />
         </label>
       </div>
       <div class="details-buttons">
-        <button class="save-button" type="submit">Guardar</button>
-        <button class="cancel-button" type="button" @click="cancelForm">Cancelar</button>
+        <button class="save-button" type="submit">{{ $t('save') }}</button>
+        <button class="cancel-button" type="button" @click="cancelForm">{{ $t('cancel') }}</button>
       </div>
     </form>
   </div>

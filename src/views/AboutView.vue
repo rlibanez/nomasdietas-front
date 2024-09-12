@@ -4,8 +4,8 @@
     <div class="content">
       <img src="/images/avocado1.png" alt="Avocado Logo" class="about-image" width="150" height="150"/>
       <div class="text-content">
-        <p>Autor: Roberto López Ibáñez</p>
-        <p>Correo: <a href="mailto:rlibanez@cic.es">rlibanez@cic.es</a></p>
+        <p>{{ $t('author') }}: Roberto López Ibáñez</p>
+        <p>Email: <a href="mailto:rlibanez@cic.es">rlibanez@cic.es</a></p>
         <p>GitHub: <a href="https://github.com/rlibanez/nomasdietas-front"
             target="_blank">https://github.com/rlibanez/nomasdietas-front</a></p>
       </div>

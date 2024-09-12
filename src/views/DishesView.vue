@@ -150,10 +150,10 @@ export default {
         this.dishes = this.dishes.filter(u => u.id !== this.selectedDish.id);
         toast.success(`El plato ${this.selectedDish.nombre} se ha borrado.`);
         this.selectedDish = null;
-        this.showModal = false;
       } catch (error) {
         toast.error(`Error al borrar el plato ${this.selectedDish.nombre}.`);
       } finally {
+        this.showModal = false;
         this.fetchDishes();
       }
     },

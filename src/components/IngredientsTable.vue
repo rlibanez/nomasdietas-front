@@ -4,10 +4,10 @@
     <table>
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Descripción</th>
-          <th class="min-column">kcal por 100 g</th>
-          <th class="min-column">Mostrar platos</th>
+          <th>{{ $t('name') }}</th>
+          <th>{{ $t('description') }}</th>
+          <th class="min-column">{{ $t('kcal100g') }}</th>
+          <th class="min-column">{{ $t('showDishes') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -27,9 +27,9 @@
   </div>
 
   <div class="actions">
-    <button class="create-button" @click="addIngredient">Agregar</button>
-    <button class="edit-button" @click="editIngredient" :disabled="!selectedIngredient">Editar</button>
-    <button class="delete-button" @click.stop="showDeleteModal" :disabled="!selectedIngredient">Eliminar</button>
+    <button class="create-button" @click="addIngredient">{{ $t('add') }}</button>
+    <button class="edit-button" @click="editIngredient" :disabled="!selectedIngredient">{{ $t('edit') }}</button>
+    <button class="delete-button" @click.stop="showDeleteModal" :disabled="!selectedIngredient">{{ $t('delete') }}</button>
   </div>
 
 </template>
@@ -123,7 +123,7 @@ button:disabled {
 }
 
 .selected-row {
-  background-color: #6fff6f;
+  background-color: #b4ffc3;
 }
 
 /* Estilos específicos para el componente IngredientList */
